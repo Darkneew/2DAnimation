@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpew7hr5586e"]
+
+[ext_resource type="PackedScene" uid="uid://ch6dmd2aj76dw" path="res://character.tscn" id="1_87f7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdavt"]
+size = Vector2(412, 105)
+
+[sub_resource type="Gradient" id="Gradient_7704e"]
+offsets = PackedFloat32Array(0, 0.0060241)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qeuw5"]
+gradient = SubResource("Gradient_7704e")
+
+[node name="World" type="Node2D"]
+
+[node name="Plateform" type="StaticBody2D" parent="."]
+position = Vector2(581, 573)
+scale = Vector2(2.59806, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cdavt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform"]
+rotation = 1.5708
+scale = Vector2(0.408033, 412.258)
+texture = SubResource("GradientTexture1D_qeuw5")
+
+[node name="Plateform2" type="StaticBody2D" parent="."]
+position = Vector2(1632, 1055)
+scale = Vector2(2.59806, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform2"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_cdavt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform2"]
+rotation = 1.5708
+scale = Vector2(0.408033, 412.258)
+texture = SubResource("GradientTexture1D_qeuw5")
+
+[node name="Character" parent="." instance=ExtResource("1_87f7i")]
+position = Vector2(383, 432)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+zoom = Vector2(0.5, 0.5)
